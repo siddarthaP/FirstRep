@@ -1,0 +1,13 @@
+package OpeningAccount;
+
+public class MODEOFFUNDING {
+	boolean Cash;
+	boolean Cheque;
+	boolean NEFT;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
