@@ -1,0 +1,160 @@
+Assignment -1
+
+1.Write a Program that will check whether a given String is Palindrome or not?
+
+import java.util.Scanner;
+             public class Palindrome
+            {
+// Method to return the reverse of a number
+public int reverse(int num) 
+{
+int revNum = 0;
+while (num > 0)
+ {
+int rem = num % 10;
+revNum = (revNum * 10) + rem;
+num = num / 10;
+}
+return revNum;
+}
+
+// Method to return the reverse of a string
+public String reverse(String str) 
+{
+StringBuilder revStr = new StringBuilder();
+for (int i = str.length()-1; i >= 0; i--)
+ {
+revStr.append(str.charAt(i));
+}
+return revStr.toString();
+}
+             public static void main(String[] args) 
+{
+Scanner scanner = new Scanner(System.in);
+System.out.println("Please enter a number: ");
+int num = scanner.nextInt();
+System.out.println("Please enter a string: ");
+String str = scanner.next();
+Palindrome palin = new Palindrome();
+int revNum = palin.reverse(num);
+String revStr = palin.reverse(str);
+if (num == revNum)
+ {
+System.out.printf("\n The number %d is a Palindrome ", num);
+} 
+else 
+{
+System.out.printf("\n The number %d is not a Palindrome ", num);
+}
+if (str.equalsIgnoreCase(revStr))
+ {
+System.out.printf("\n The string '%s' is a Palindrome ", str);
+}
+ else 
+{
+System.out.printf("\n The string '%s' is not a Palindrome ", str);
+}
+}
+}
+
+
+2.Write a program to store a group of employee names into a HashSet,
+retrieve the elements one by one using an Iterator. Use Hashset with String as Generics for adding employee names ?
+
+import java.util.Iterator;
+import java.util.HashSet;
+public class HashSet
+{
+public static void retrieveValuesFromListMethod1(Set set)
+{
+
+Iterator itr = set.iterator();
+//    System.out.println("please print the iterator values"+itr);
+while(itr.hasNext())
+{
+System.out.println(itr.next());
+}
+}
+
+public static void main(String args[])
+{
+/*	Set set = new TreeSet();
+set.add("employee 1");
+set.add("employee 2");
+set.add("employ	ee 2");
+set.add("employee 3");
+System.out.println("Retrieving values using Iterator");
+retrieveValuesFromListMethod1(set);
+System.out.println("**********************\n\n");*/
+String emp1=new String("Employee1");
+String emp2=new String("Employee2");
+String emp3=new String("Employee3");
+String emp4=new String("Employee2");
+String emp5=new String("Employee5");
+HashSet employee = new HashSet();
+employee.add(emp1);
+((Set) employee).add(emp2);
+((Set) employee).add(emp3);
+((Set) employee).add(emp4);
+((Set) employee).add(emp5);
+System.out.println("print the values"+employee);
+}
+}
+
+
+3. Write a program to accept name and age of a person from the command prompt
+(passed as arguments when you execute the class) and ensure that the age entered is >=18 and < 60.
+Display proper error messages.
+The program must exit gracefully after displaying the error message in case the arguments passed
+are not proper. (Hint : Create a user defined exception class for handling errors.)
+
+import java.util.Scanner;
+public class Person
+{
+public int nameAndAge(int ageP) throws AgeInputException
+{
+if(ageP >= 18 && ageP<60)
+{
+System.out.println("given age "+ageP);
+}	
+else
+{
+throw new AgeInputException();	
+}
+return ageP;
+}
+public static void main(String args[])
+{
+Scanner scanner = new Scanner(System.in);
+System.out.println("Please enter a Age   :");
+int age = scanner.nextInt();
+System.out.println("Please enter a FirstName   :");
+String name = scanner.next();
+Person ageandname=new Person();
+try 
+{
+ageandname.nameAndAge(age);
+}
+ catch (AgeInputException e) 
+{
+System.out.println("NOT A VALID AGE PLEASE ENTER RE-ENTER");
+}
+}
+}
+
+
+
+public class AgeInputException extends Exception
+ {
+public AgeInputException()
+{
+super();
+}
+//override
+public String getMessage()
+{
+return "Not A Valid age";
+}
+}
+
+
