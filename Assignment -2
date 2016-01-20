@@ -1,0 +1,50 @@
+ASSIGNMENT-2
+
+
+1.Third Normal Form :
+Example :
+S_id	S_Name	S_Address	Subject_opted
+401	Adam	Noida	Bio
+402	Alex	Panipat	Maths
+403	Stuart	Jammu	Maths
+404	Adam	Noida	Physics
+
+
+First Normal Form:
+
+Student	Age	Subject
+Adam	15	Biology
+Adam	15	Maths
+Alex	14	Maths
+Stuart	17	Maths
+
+
+Second Normal Form :
+
+New Student Table following 2NF will be :
+Student	Age
+Adam	15
+Alex	14
+Stuart	17
+In Student Table the candidate key will be Student column, because all other column i.e Age is dependent on it.
+New Subject Table introduced for 2NF will be :
+Student	Subject
+Adam	Biology
+Adam	Maths
+Alex	Maths
+Stuart	Maths
+
+Third Normal form applies that every non-prime attribute of table must be dependent on primary key, or we can say that, there should not be the case that a non-prime attribute is determined by another non-prime attribute. So this transitive functional dependency should be removed from the table and also the table must be in Second Normal form.
+Student Detail Table:
+
+Student_id	Student_name	DOB	Street	city	State	Zip
+
+New Student_Detail Table :
+Student_id	Student_name	DOB	Zip
+Address Table :
+Zip	Street	city	state
+
+
+
+2.Library Management ER Diagram:
+
